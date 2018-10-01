@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Main from './components/Main';
 import PlayerSelection from './components/PlayerSelection';
+import dashboard from './components/dashboard';
 import { createStackNavigator } from 'react-navigation';
 
 export default class App extends Component {
@@ -19,7 +20,8 @@ export default class App extends Component {
 
 const AppStackNavigator =createStackNavigator({
   main: Main,
-  playerselection: PlayerSelection
+  playerselection: PlayerSelection,
+  dashboard : dashboard
 },
 {
   headerMode: 'none',

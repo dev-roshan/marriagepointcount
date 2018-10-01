@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {View,Text, StyleSheet,Image,StatusBar, KeyboardAvoidingView ,ScrollView } from 'react-native';
+import {View,Text, StyleSheet,Image,StatusBar ,ScrollView } from 'react-native';
 import ComboSelection  from './SelectionCombo/ComboSelection';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import PlayerInput from './SelectionCombo/PlayerInput';
 GLOBAL = require('../Global');
 
@@ -44,9 +45,13 @@ handleChange = (value) =>{
   render() {
   // console.warn(GLOBAL.player1);
       return (
-        <ScrollView style={styles.main}>
-        <KeyboardAvoidingView
+        <ScrollView 
+        style={styles.main}
+        >
+        <KeyboardAwareScrollView
         style={{ marginBottom: 40 }} 
+        viewIsInsideTabBar={true}
+        keyboardShouldPersistTaps= 'handled'
         >
          <StatusBar
               translucent 
@@ -56,8 +61,8 @@ handleChange = (value) =>{
           <View style={styles.selectionCombo}> 
             <ComboSelection onSelectionChange={ this.handleChange } />
           </View>
-          <PlayerInput numberOfPlayers={this.state.no_of_players} />
-        </KeyboardAvoidingView>
+          <PlayerInput numberOfPlayers={this.state.no_of_players} navigation={this.props.navigation} />
+        </KeyboardAwareScrollView>
         </ScrollView>
       );
     }
