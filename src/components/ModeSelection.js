@@ -16,12 +16,12 @@ export default class ModeSelection extends Component {
     return (
       <View style={styles.main}>
         <View style={styles.selectionBox}>
-        <Image style={styles.selectionImage} source={require('../assets/img/hotspot.png')} />
+        <Image style={styles.selectionImage} source={{uri: 'asset:/img/hotspot.png'}} />
         </View>
         <Text style={styles.selectionText}>Hotspot</Text>
         <TouchableOpacity onPress={()=>this.props.navigation.navigate('playerselection')}>
         <View style={styles.selectionBox}>
-        <Image style={styles.selectionImage} source={require('../assets/img/offline.png')} />
+        <Image style={styles.selectionImage} source={{uri: 'asset:/img/offline.png'}} />
         </View>
         </TouchableOpacity>
         <Text style={styles.selectionText}>Offline</Text>

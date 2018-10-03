@@ -55,13 +55,13 @@ export default class PlayerInput extends Component {
             });
             return;
           }
-          myArray.push({name:name});
+          myArray.push({name:name,id:index});
         }
       }
       if(error==""){
         AsyncStorage.setItem('players', JSON.stringify(myArray))
-          .then(json => console.warn('success!'))
-          .catch(error => console.warn('error!'));
+          // .then(json => console.warn('success!'))
+          // .catch(error => console.warn('error!'));
       }
       this.props.navigation.navigate('dashboard');
   }

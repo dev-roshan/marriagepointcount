@@ -19,7 +19,7 @@ export default class Main extends Component {
         />
         <View style={styles.logoview}>
             <Text style={styles.title}>Marriage Point Count</Text>
-           <Image style={styles.logo} source={require ('../assets/img/logo.png')} />
+           <Image style={styles.logo} source={{uri: 'asset:/img/logo.png'}} />
         </View>
         <ModeSelection navigation={this.props.navigation} />
       </View>
