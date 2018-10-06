@@ -42,14 +42,20 @@ export default class DrawerCustom extends Component {
 const Styles=StyleSheet.create({
   header:{
     backgroundColor: '#330022',
+    flexDirection: 'row',
+    
   },
   headerText:{
     alignSelf:'center',
     fontSize:30,
     color:'white',
-    marginTop: -40
+    marginLeft: 90,
+    marginTop: 32,
+    marginBottom: 5,
   },
   icon:{
-    marginTop:23,
+    marginTop:32,
+    marginLeft:10,
+    marginBottom: 5,    
   }
 });

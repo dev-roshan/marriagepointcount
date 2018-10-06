@@ -30,76 +30,85 @@ export default class DrawerContent extends Component {
     // console.warn(data);
     if(data){
       return (
-      <View style={Styles.main}>
-         <Image style={Styles.logoimg} source={{uri: 'asset:/img/logonew.png'}} />
-         {data.map((item,key) => {
-           let imageUrl='asset:/img/player_icons/'+item.id+'.png';
-               return (
-                <View key={key} style={Styles.DrawerPlayers}>
-                   <Image style={Styles.playerIcon} source={{uri: 'asset:/img/player_icons/'+item.id+'.png'}} />
-                   <Text style={Styles.DrawerName}>{item.name}</Text>
-                   <Text style={Styles.DrawerScore}>0</Text>
+        <View style={Styles.main}>
+           <Image style={Styles.logoimg} source={{uri: 'asset:/img/logonew.png'}} />
+           
+           {data.map((item,key) => {
+             let imageUrl='asset:/img/player_icons/'+item.id+'.png';
+                 return (
+                <View key={key} style={Styles.playerBoard}>
+                  <View style={Styles.DrawerPlayers}>
+                     <Image style={Styles.playerIcon} source={{uri: 'asset:/img/player_icons/'+item.id+'.png'}} />
+                     <Text style={Styles.DrawerName}>{item.name}</Text>
+                     <Text style={Styles.DrawerScore}>0</Text>
+                  </View>
                 </View>
-               );
-            })}
-      </View>
+                 );
+              })}
+        </View>
+        );
+      }
+      else{
+            return (
+        <View style={Styles.main}>
+           <Image style={Styles.logoimg} source={{uri: 'asset:/img/logonew.png'}} />
+           {/* {this.state.players.map((item) => {
+                 let label="Player ";
+                 label=label+item.id.toString();
+                 return (
+                  <View>
+                     <Image style={Styles.playerIcon} source={{uri: 'asset:/img/player_icons/cat.png'}} />
+                  </View>
+                 );
+              })} */}
+        </View>
       );
     }
-    else{
-          return (
-      <View style={Styles.main}>
-         <Image style={Styles.logoimg} source={{uri: 'asset:/img/logonew.png'}} />
-         {/* {this.state.players.map((item) => {
-               let label="Player ";
-               label=label+item.id.toString();
-               return (
-                <View>
-                   <Image style={Styles.playerIcon} source={{uri: 'asset:/img/player_icons/cat.png'}} />
-                </View>
-               );
-            })} */}
-      </View>
-    );
-  }
-  }
-}
-
-const Styles=StyleSheet.create({
-    main:{
-        flex:1,
-        backgroundColor: '#333333',
-    },
-    logoimg:{
-        marginTop: 30,
-        backgroundColor: 'rgba(0,0,0,0)',
-        width: 280,
-        height: 100,
-        alignSelf: 'center',
-    },
-    playerIcon:{
-      width: 50,
-      height: 50,
-    },
-    DrawerPlayers:{
-    flexDirection: 'row',
-    margin: 10,
-    justifyContent: 'flex-end'
-
-    // borderColor: 'green',
-    // borderStyle: 'solid',
-    // borderWidth: 2,
-    },
-    DrawerName:{
-      fontFamily: 'Changa',
-      fontSize: 25,
-      color:'white',
-      marginLeft: 20,
-    },
-    DrawerScore:{
-      fontFamily: 'Changa',
-      fontSize: 25,
-      alignSelf: 'center',
-      justifyContent: 'flex-end',
-      color:'white',
     }
-});
+  }
+  
+  const Styles=StyleSheet.create({
+      main:{
+          flex:1,
+          backgroundColor: '#333333',
+      },
+      logoimg:{
+          marginTop: 30,
+          backgroundColor: 'rgba(0,0,0,0)',
+          width: 280,
+          height: 130,
+          alignSelf: 'center',
+      },
+      playerIcon:{
+        width: 50,
+        height: 50,
+        marginLeft:10,
+      },
+      playerBoard:{
+        borderRadius: 4,
+        borderWidth: 0.5,
+        borderColor: '#d6d7da',
+        margin:10,
+        
+      },
+      DrawerPlayers:{
+      flexDirection: 'row',
+      margin: 6,
+      justifyContent: 'space-between',
+     
+   
+      },
+      DrawerName:{
+        fontFamily: 'Changa',
+        fontSize: 25,
+        color:'white',
+        marginLeft: -70,
+      },
+      DrawerScore:{
+        flexDirection: 'row',
+        fontFamily: 'Changa',
+        fontSize: 25,
+        alignSelf: 'center',
+        color:'white',
+      }
+  });
